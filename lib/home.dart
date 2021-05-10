@@ -99,13 +99,31 @@ class _HomeState extends State<Home> {
                         ],
                       ),
                     )
-                  : Container(),
+                  : Container(
+                    child: Column(
+                      children: <Widget>[
+                        Container(
+                          height:250,
+                          child: Image.file(_image),
+                        ),
+                        SizedBox(height:20),
+                        _output!=null? Text(
+                          '${_output[0]['label']}',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize:20,
+                          ),
+                        ):Container(),
+                        SizedBox(height:10),
+                      ],
+                    ),
+                  ),
             ),
             Container(
                 width: MediaQuery.of(context).size.width,
                 child: Column(children: <Widget>[
                   GestureDetector(
-                      onTap: () {},
+                      onTap: pickImage,
                       child: Container(
                         width: MediaQuery.of(context).size.width - 190,
                         alignment: Alignment.center,
@@ -120,7 +138,7 @@ class _HomeState extends State<Home> {
                       )),
                   SizedBox(height: 10),
                   GestureDetector(
-                      onTap: () {},
+                      onTap:pickGalleryImage,
                       child: Container(
                         width: MediaQuery.of(context).size.width - 190,
                         alignment: Alignment.center,
